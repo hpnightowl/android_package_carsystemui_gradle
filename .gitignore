@@ -7,3 +7,20 @@
 
 # A file created when launching android emulators
 read-snapshot.txt
+
+/platform.keystore
+.gradle/
+build/
+.idea/
+local.properties
+*.iml
+.kotlin/
+build-*.log
+harvest.log
+__pycache__/
+*.pyc
+*.patch
+mm.log
+push.log
+emu.log
+shot-*.png
