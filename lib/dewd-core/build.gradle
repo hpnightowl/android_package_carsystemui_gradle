@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.dewd.lib'
+    sourceSets.main {
+        manifest.srcFile '../../lib/dewd-core/AndroidManifest-lib.xml'
+        java.srcDirs = []
+        res.srcDirs = ['../../lib/dewd-core/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+}

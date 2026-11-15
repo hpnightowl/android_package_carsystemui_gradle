@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.minimizedcontrols'
+    sourceSets.main {
+        manifest.srcFile '../../pods/minimized-controls/AndroidManifest.xml'
+        java.srcDirs = ['../../pods/minimized-controls/src']
+        kotlin.srcDirs = ['../../pods/minimized-controls/src']
+        res.srcDirs = ['../../pods/minimized-controls/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

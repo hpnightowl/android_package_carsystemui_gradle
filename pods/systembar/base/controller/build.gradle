@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.systembar.base'
+    sourceSets.main {
+        manifest.srcFile '../../../../pods/systembar/base/controller/AndroidManifest.xml'
+        java.srcDirs = ['../../../../pods/systembar/base/controller/src']
+        kotlin.srcDirs = ['../../../../pods/systembar/base/controller/src']
+        res.srcDirs = []
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

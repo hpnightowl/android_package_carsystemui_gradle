@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.flexibleui'
+    sourceSets.main {
+        manifest.srcFile '../../pods/flexible-ui/AndroidManifest.xml'
+        java.srcDirs = ['../../pods/flexible-ui/src']
+        res.srcDirs = ['../../pods/flexible-ui/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api 'aosp:SystemUI-core:17'
+    api 'aosp:dagger2:17'
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

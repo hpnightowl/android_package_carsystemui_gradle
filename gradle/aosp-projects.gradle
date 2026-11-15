@@ -1,0 +1,90 @@
+include ':CarSystemUI'
+project(':CarSystemUI').projectDir = new File(rootDir, 'gradle-modules/CarSystemUI')
+include ':CarSystemUI-Shared'
+project(':CarSystemUI-Shared').projectDir = new File(rootDir, 'gradle-modules/CarSystemUI-Shared')
+include ':CarSystemUI-FlexibleUI'
+project(':CarSystemUI-FlexibleUI').projectDir = new File(rootDir, 'pods/flexible-ui')
+include ':CarSystemUI-Hvac-Controller'
+project(':CarSystemUI-Hvac-Controller').projectDir = new File(rootDir, 'pods/hvac/controller')
+include ':CarSystemUI-Hvac-UI'
+project(':CarSystemUI-Hvac-UI').projectDir = new File(rootDir, 'pods/hvac/ui')
+include ':CarSystemUI-SystemBar-Base-Controller'
+project(':CarSystemUI-SystemBar-Base-Controller').projectDir = new File(rootDir, 'pods/systembar/base/controller')
+include ':CarSystemUI-SystemBar-Base-View'
+project(':CarSystemUI-SystemBar-Base-View').projectDir = new File(rootDir, 'pods/systembar/base/view')
+include ':CarSystemUI-Minimized-Controls'
+project(':CarSystemUI-Minimized-Controls').projectDir = new File(rootDir, 'pods/minimized-controls')
+include ':CarSystemUI-Notification'
+project(':CarSystemUI-Notification').projectDir = new File(rootDir, 'pods/notification')
+include ':CarSystemUI-QC-DataSubscription'
+project(':CarSystemUI-QC-DataSubscription').projectDir = new File(rootDir, 'pods/qc/datasubscription')
+include ':CarSystemUI-QC-Footer-Base'
+project(':CarSystemUI-QC-Footer-Base').projectDir = new File(rootDir, 'pods/qc/footer/base')
+include ':CarSystemUI-QC-Base'
+project(':CarSystemUI-QC-Base').projectDir = new File(rootDir, 'pods/qc/base')
+include ':CarSystemUI-QC-Footer-Logout'
+project(':CarSystemUI-QC-Footer-Logout').projectDir = new File(rootDir, 'pods/qc/footer/logout')
+include ':CarSystemUI-QC-Footer-ScreenOff'
+project(':CarSystemUI-QC-Footer-ScreenOff').projectDir = new File(rootDir, 'pods/qc/footer/screenoff')
+include ':CarSystemUI-QC-Footer-UserPicker'
+project(':CarSystemUI-QC-Footer-UserPicker').projectDir = new File(rootDir, 'pods/qc/footer/userpicker')
+include ':CarSystemUI-QC-ProfileSwitcher'
+project(':CarSystemUI-QC-ProfileSwitcher').projectDir = new File(rootDir, 'pods/qc/profileswitcher')
+include ':CarSystemUI-StatusIcon-Base'
+project(':CarSystemUI-StatusIcon-Base').projectDir = new File(rootDir, 'pods/statusicon/base')
+include ':CarSystemUI-StatusIcon-Bluetooth'
+project(':CarSystemUI-StatusIcon-Bluetooth').projectDir = new File(rootDir, 'pods/statusicon/bluetooth')
+include ':CarSystemUI-StatusIcon-Location'
+project(':CarSystemUI-StatusIcon-Location').projectDir = new File(rootDir, 'pods/statusicon/location')
+include ':CarSystemUI-StatusIcon-MediaVolume'
+project(':CarSystemUI-StatusIcon-MediaVolume').projectDir = new File(rootDir, 'pods/statusicon/mediavolume')
+include ':CarSystemUI-StatusIcon-Mobile'
+project(':CarSystemUI-StatusIcon-Mobile').projectDir = new File(rootDir, 'pods/statusicon/mobile')
+include ':CarSystemUI-StatusIcon-PhoneCall'
+project(':CarSystemUI-StatusIcon-PhoneCall').projectDir = new File(rootDir, 'pods/statusicon/phonecall')
+include ':CarSystemUI-StatusIcon-Connectivity'
+project(':CarSystemUI-StatusIcon-Connectivity').projectDir = new File(rootDir, 'pods/statusicon/connectivity')
+include ':CarSystemUI-StatusIcon-Wifi'
+project(':CarSystemUI-StatusIcon-Wifi').projectDir = new File(rootDir, 'pods/statusicon/wifi')
+include ':CarSystemUI-SystemBar-AaosStudioButton'
+project(':CarSystemUI-SystemBar-AaosStudioButton').projectDir = new File(rootDir, 'pods/systembar/aaosstudio')
+include ':CarSystemUI-SystemBar-AppGridButton'
+project(':CarSystemUI-SystemBar-AppGridButton').projectDir = new File(rootDir, 'pods/systembar/appgrid')
+include ':CarSystemUI-SystemBar-AssistantButton'
+project(':CarSystemUI-SystemBar-AssistantButton').projectDir = new File(rootDir, 'pods/systembar/assistant')
+include ':CarSystemUI-SystemBar-ControlCenterButton'
+project(':CarSystemUI-SystemBar-ControlCenterButton').projectDir = new File(rootDir, 'pods/systembar/controlcenter')
+include ':CarSystemUI-SystemBar-DebugPanel'
+project(':CarSystemUI-SystemBar-DebugPanel').projectDir = new File(rootDir, 'pods/systembar/debugpanel')
+include ':CarSystemUI-SystemBar-Panel'
+project(':CarSystemUI-SystemBar-Panel').projectDir = new File(rootDir, 'pods/systembar/panel')
+include ':CarSystemUI-SystemBar-Dock'
+project(':CarSystemUI-SystemBar-Dock').projectDir = new File(rootDir, 'pods/systembar/dock')
+include ':CarSystemUI-SystemBar-Extension'
+project(':CarSystemUI-SystemBar-Extension').projectDir = new File(rootDir, 'pods/systembar/extension')
+include ':CarSystemUI-SystemBar-Standard'
+project(':CarSystemUI-SystemBar-Standard').projectDir = new File(rootDir, 'pods/systembar/standard')
+include ':CarSystemUI-SystemBar-HomeButton'
+project(':CarSystemUI-SystemBar-HomeButton').projectDir = new File(rootDir, 'pods/systembar/home')
+include ':CarSystemUI-SystemBar-NotificationChip'
+project(':CarSystemUI-SystemBar-NotificationChip').projectDir = new File(rootDir, 'pods/systembar/notificationchip')
+include ':CarSystemUI-SystemBar-PrivacyChip-Base'
+project(':CarSystemUI-SystemBar-PrivacyChip-Base').projectDir = new File(rootDir, 'pods/systembar/privacy/base')
+include ':CarSystemUI-SystemBar-PassengerHomeButton'
+project(':CarSystemUI-SystemBar-PassengerHomeButton').projectDir = new File(rootDir, 'pods/systembar/passengerhome')
+include ':CarSystemUI-SystemBar-PrivacyChip-Camera'
+project(':CarSystemUI-SystemBar-PrivacyChip-Camera').projectDir = new File(rootDir, 'pods/systembar/privacy/camera')
+include ':CarSystemUI-SystemBar-PrivacyChip-Cast'
+project(':CarSystemUI-SystemBar-PrivacyChip-Cast').projectDir = new File(rootDir, 'pods/systembar/privacy/cast')
+include ':CarSystemUI-SystemBar-PrivacyChip-Mic'
+project(':CarSystemUI-SystemBar-PrivacyChip-Mic').projectDir = new File(rootDir, 'pods/systembar/privacy/mic')
+include ':CarSystemUI-SystemBar-PrivacyChip-Share'
+project(':CarSystemUI-SystemBar-PrivacyChip-Share').projectDir = new File(rootDir, 'pods/systembar/privacy/share')
+include ':CarSystemUI-SystemBar-Split'
+project(':CarSystemUI-SystemBar-Split').projectDir = new File(rootDir, 'pods/systembar/split')
+include ':CarSystemUI-SystemBar-UserNamePanel'
+project(':CarSystemUI-SystemBar-UserNamePanel').projectDir = new File(rootDir, 'pods/systembar/usernamepanel')
+include ':CarSystemUI-SystemBar-Volume'
+project(':CarSystemUI-SystemBar-Volume').projectDir = new File(rootDir, 'pods/systembar/volume')
+include ':dewd-res-core'
+project(':dewd-res-core').projectDir = new File(rootDir, 'lib/dewd-core')

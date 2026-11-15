@@ -1,0 +1,110 @@
+def prebuilts = rootProject.file('aosp-prebuilts')
+def platformJar = new File(prebuilts, 'platform/platform-classpath.jar')
+
+def includeApks = (prebuilts.toPath().resolve('platform').toFile().listFiles({ f -> f.name.endsWith('.apk') } as FileFilter) ?: [] as File[])
+        .toList().sort { a, b -> a.name == 'framework-res.apk' ? -1 : b.name == 'framework-res.apk' ? 1 : a.name <=> b.name }
+
+android {
+    compileSdk { version = release(37) }
+    defaultConfig {
+        minSdk = 37
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+    buildFeatures {
+        buildConfig = false
+        aidl = false
+        renderScript = false
+        shaders = false
+    }
+    androidResources {
+        additionalParameters += ['--auto-add-overlay', '--no-resource-deduping', '--no-resource-removal']
+        includeApks.each { additionalParameters += ['-I', it.absolutePath] }
+    }
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
+}
+
+dependencies {
+    compileOnly files(platformJar)
+}
+
+def reordered = { Collection<File> files ->
+    def plat = files.findAll { it.name == 'platform-classpath.jar' }
+    def sdk = files.findAll { it.name == 'android.jar' }
+    plat + (files - plat - sdk) + sdk
+}
+
+tasks.withType(JavaCompile).configureEach { t ->
+    t.doFirst {
+        t.classpath = t.project.files(reordered(t.classpath.files))
+    }
+}
+tasks.configureEach { t ->
+
+    def n = t.class.name
+    if (n.contains('KotlinCompile') || n.contains('KaptGenerateStubs')) {
+        t.doFirst {
+            t.libraries.setFrom(t.project.files(reordered(t.libraries.files)))
+        }
+    } else if (n.contains('KaptWithoutKotlinc')) {
+        gradle.taskGraph.whenReady {
+            t.classpath.setFrom(t.project.files(reordered(t.classpath.files)))
+        }
+    }
+}
+
+afterEvaluate {
+    def kotlinExt = extensions.findByName('kotlin')
+    if (kotlinExt != null) {
+        kotlinExt.compilerOptions {
+            freeCompilerArgs.add('-Xjvm-default=all')
+        }
+    }
+}
+
+ext.aospSources = [
+
+    restrict      : { Project p, List<String> roots, File list ->
+
+        def norm = { String s -> s.replace('\\', '/') }
+        def allowed = new HashSet<String>()
+        list.eachLine { line -> if (line) allowed << norm(rootProject.file(line).absolutePath) }
+        def rootPrefixes = roots.collect { norm(rootProject.file(it).absolutePath) + '/' }
+
+        def skip = { e ->
+            if (e.directory) return false
+            def f = norm(e.file.absolutePath)
+            rootPrefixes.any { f.startsWith(it) } && !allowed.contains(f)
+        }
+        p.tasks.configureEach { t ->
+            def n = t.class.name
+            if (t.metaClass.respondsTo(t, 'exclude', Closure) &&
+                    (n.contains('JavaCompile') || n.contains('KotlinCompile') || n.contains('KaptGenerateStubs'))) {
+                t.exclude(skip)
+            }
+        }
+
+        gradle.taskGraph.whenReady {
+            p.tasks.matching { it.class.name.contains('KaptWithoutKotlinc') }.each { t ->
+                def roots2 = t.source.files.collect { it }
+                t.source.setFrom(roots2.collect { r ->
+                    rootPrefixes.any { norm(r.absolutePath) + '/' == it } ? p.fileTree(r) { tree -> tree.exclude(skip) } : r
+                })
+            }
+        }
+    },
+
+    processorArgs : { Project p, List<String> args ->
+        def map = [:]
+        args.each { a -> def kv = a.split('=', 2); map[kv[0]] = kv.length > 1 ? kv[1] : '' }
+        p.android.defaultConfig.javaCompileOptions.annotationProcessorOptions.arguments.putAll(map)
+        p.pluginManager.withPlugin('com.android.legacy-kapt') {
+            p.extensions.getByName('kapt').arguments { a -> map.each { k, v -> a.arg(k, v) } }
+        }
+    },
+]

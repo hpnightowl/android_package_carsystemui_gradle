@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.hvac.ui'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/hvac/ui/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/hvac/ui/src']
+        res.srcDirs = ['../../../pods/hvac/ui/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-Hvac-Controller')
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-SystemBar-Base-Controller')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

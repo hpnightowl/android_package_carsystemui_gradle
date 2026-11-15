@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.library'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.systembar.privacy.share'
+    sourceSets.main {
+        manifest.srcFile '../../../../pods/systembar/privacy/share/AndroidManifest.xml'
+        java.srcDirs = ['../../../../pods/systembar/privacy/share/src']
+        kotlin.srcDirs = ['../../../../pods/systembar/privacy/share/src']
+        res.srcDirs = ['../../../../pods/systembar/privacy/share/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-SystemBar-Base-Controller')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Base')
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

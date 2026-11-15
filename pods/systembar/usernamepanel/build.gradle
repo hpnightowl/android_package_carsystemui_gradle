@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.systembar.usernamepanel'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/systembar/usernamepanel/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/systembar/usernamepanel/src']
+        res.srcDirs = ['../../../pods/systembar/usernamepanel/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-SystemBar-Base-Controller')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    api project(':CarSystemUI-SystemBar-Panel')
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.library'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.systembar.notificationchip'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/systembar/notificationchip/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/systembar/notificationchip/src']
+        kotlin.srcDirs = ['../../../pods/systembar/notificationchip/src']
+        res.srcDirs = ['../../../pods/systembar/notificationchip/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-Notification')
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Base')
+    api project(':CarSystemUI-SystemBar-Panel')
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

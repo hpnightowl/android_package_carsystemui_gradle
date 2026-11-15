@@ -22,7 +22,7 @@
     </declare-styleable>
 
     <declare-styleable name="QCFooterView">
-        <attr name="intent" format="string"/>
-        <attr name="disableWhileDriving" format="boolean"/>
+        <attr name="intent"/>
+        <attr name="disableWhileDriving"/>
     </declare-styleable>
 </resources>

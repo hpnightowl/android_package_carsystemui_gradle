@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.hvac.controller'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/hvac/controller/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/hvac/controller/src']
+        res.srcDirs = []
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

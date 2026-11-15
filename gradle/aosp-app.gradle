@@ -1,0 +1,87 @@
+android {
+    defaultConfig {
+        applicationId = 'com.android.systemui'
+        targetSdk = 37
+        versionCode = 37
+        versionName = '17'
+        multiDexEnabled = true
+    }
+
+    def hasPlatformKey = rootProject.file('platform.keystore').isFile()
+    if (!hasPlatformKey) {
+        logger.warn('platform.keystore not found: signing with the debug key (add platform.keystore, PKCS12 with alias platform and password android, built from the AOSP platform key, to sign as the platform app)')
+    }
+
+    signingConfigs {
+        platform {
+            storeFile = rootProject.file('platform.keystore')
+            storePassword = 'android'
+            keyAlias = 'platform'
+            keyPassword = 'android'
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+        }
+    }
+
+    buildTypes {
+        debug {
+            if (hasPlatformKey) signingConfig = signingConfigs.platform
+
+            minifyEnabled = true
+            proguardFiles(rootProject.file('gradle/aosp-r8-rules.pro'))
+        }
+        release {
+            if (hasPlatformKey) signingConfig = signingConfigs.platform
+            minifyEnabled = false
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/*.version', 'META-INF/*.kotlin_module', 'META-INF/INDEX.LIST', 'META-INF/DEPENDENCIES',
+                         'META-INF/LICENSE*', 'META-INF/NOTICE*', 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA',
+                         'DebugProbesKt.bin', 'kotlin-tooling-metadata.json']
+        }
+    }
+}
+
+afterEvaluate {
+    tasks.register('pushToDevice') {
+        group = 'aosp'
+        description = 'Replaces /system_ext/priv-app/CarSystemUI/CarSystemUI.apk on a rooted, remountable device and restarts SystemUI'
+        dependsOn 'assembleDebug'
+        def apk = layout.buildDirectory.file('outputs/apk/debug/CarSystemUI-debug.apk')
+        def adbProvider = androidComponents.sdkComponents.adb
+        def serial = providers.gradleProperty('serial').orNull
+        doLast {
+            def adbPath = adbProvider.get().asFile.absolutePath
+            def adb = { String... args ->
+                def cmd = [adbPath] + (serial ? ['-s', serial] : []) + args.toList()
+                def p = new ProcessBuilder(cmd).redirectErrorStream(true).start()
+                def out = p.inputStream.text
+                if (p.waitFor() != 0) throw new GradleException("adb ${args.join(' ')} failed:\n${out}")
+                logger.lifecycle("adb ${args.join(' ')}\n${out.trim()}")
+                out
+            }
+            def rootOut = adb('root')
+            if (rootOut.contains('disabled by system setting')) {
+                throw new GradleException('adb root is disabled on this device. On a LineageOS image turn on ' +
+                        'Settings > System > Developer options > Rooted debugging ("ADB only"), then run the task again.')
+            }
+            adb('wait-for-device')
+            def remount = adb('remount')
+            if (!remount.contains('Remount succeeded')) {
+                throw new GradleException("adb remount asked for a reboot (verity). Run `adb disable-verity`, `adb reboot`, " +
+                        "then `adb root && adb remount`, and run this task again.\n${remount}")
+            }
+            def dir = '/system_ext/priv-app/CarSystemUI'
+            adb('shell', "rm -rf ${dir}/oat ${dir}/CarSystemUI.apk")
+            adb('shell', "mkdir -p ${dir}")
+            adb('push', apk.get().asFile.absolutePath, "${dir}/CarSystemUI.apk")
+            adb('shell', 'sync')
+
+            adb('shell', 'stop; start')
+        }
+    }
+}

@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.library'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.shared'
+    sourceSets.main {
+        manifest.srcFile '../../AndroidManifest-shared.xml'
+        java.srcDirs = ['../../src', '../../aosp-prebuilts/gen/CarSystemUI-Shared']
+        kotlin.srcDirs = ['../../src', '../../aosp-prebuilts/gen/CarSystemUI-Shared']
+        res.srcDirs = ['../../res-keyguard', '../../res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+aospSources.restrict(project, ['src'], file('sources.txt'))
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':dewd-res-core')
+    api 'aosp:SystemUI-application:17'
+    api 'aosp:SystemUI-core:17'
+    api 'aosp:CarNotificationLib:17'
+    api 'aosp:SystemUIPluginLib:17'
+    api 'aosp:SystemUISharedLib:17'
+    api 'aosp:SettingsLib:17'
+    api 'aosp:car-admin-ui-lib:17'
+    api 'aosp:car-helper-lib:17'
+    api 'aosp:car-telephony-common-no-overlayable:17'
+    api 'aosp:car-ui-lib-no-overlayable:17'
+    api 'aosp:car-qc-lib:17'
+    api 'aosp:car-scalable-ui-lib:17'
+    api 'aosp:car-scalable-ui-designcompose-lib:17'
+    api 'aosp:car-tos-lib:17'
+    api 'aosp:com_android_systemui_car_flags_lib:17'
+    api 'aosp:androidx.annotation_annotation:17'
+    api 'aosp:androidx.legacy_legacy-support-v4:17'
+    api 'aosp:androidx.recyclerview_recyclerview:17'
+    api 'aosp:androidx.preference_preference:17'
+    api 'aosp:androidx.appcompat_appcompat:17'
+    api 'aosp:androidx.mediarouter_mediarouter:17'
+    api 'aosp:androidx.palette_palette:17'
+    api 'aosp:androidx.legacy_legacy-preference-v14:17'
+    api 'aosp:androidx.leanback_leanback:17'
+    api 'aosp:androidx.slice_slice-core:17'
+    api 'aosp:androidx.slice_slice-view:17'
+    api 'aosp:androidx.slice_slice-builders:17'
+    api 'aosp:androidx.arch.core_core-runtime:17'
+    api 'aosp:androidx.lifecycle_lifecycle-common-java8:17'
+    api 'aosp:androidx.lifecycle_lifecycle-extensions:17'
+    api 'aosp:SystemUI-tags:17'
+    api 'aosp:SystemUI-proto:17'
+    api 'aosp:dagger2:17'
+    api 'aosp:kotlin-annotations:17'
+    api 'aosp:animationlib:17'
+    api 'aosp:CarDockLib:17'
+    api 'aosp:androidx.test.rules:17'
+    api 'aosp:Car-WindowManager-Shell:17'
+    api 'aosp:oem-token-lib:17'
+    api 'aosp:CarSystemUI-extras:17'
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}
+
+aospSources.processorArgs(project, ['dagger.fastInit=enabled'])

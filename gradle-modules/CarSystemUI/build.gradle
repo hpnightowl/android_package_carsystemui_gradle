@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'com.android.legacy-kapt'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+apply from: rootProject.file('gradle/aosp-app.gradle')
+
+android {
+    namespace 'com.android.systemui'
+    sourceSets.main {
+        manifest.srcFile '../../AndroidManifest.xml'
+        java.srcDirs = ['../../src', '../../src/com/android/systemui/car/statusicon']
+        kotlin.srcDirs = ['../../src', '../../src/com/android/systemui/car/statusicon']
+        res.srcDirs = []
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+aospSources.restrict(project, ['src'], file('sources.txt'))
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-Hvac-Controller')
+    api project(':CarSystemUI-Hvac-UI')
+    api project(':CarSystemUI-Minimized-Controls')
+    api project(':CarSystemUI-Notification')
+    api project(':CarSystemUI-QC-DataSubscription')
+    api project(':CarSystemUI-QC-Footer-Base')
+    api project(':CarSystemUI-QC-Base')
+    api project(':CarSystemUI-QC-Footer-Logout')
+    api project(':CarSystemUI-QC-Footer-ScreenOff')
+    api project(':CarSystemUI-QC-Footer-UserPicker')
+    api project(':CarSystemUI-QC-ProfileSwitcher')
+    api project(':CarSystemUI-StatusIcon-Base')
+    api project(':CarSystemUI-StatusIcon-Bluetooth')
+    api project(':CarSystemUI-StatusIcon-Location')
+    api project(':CarSystemUI-StatusIcon-MediaVolume')
+    api project(':CarSystemUI-StatusIcon-Mobile')
+    api project(':CarSystemUI-StatusIcon-PhoneCall')
+    api project(':CarSystemUI-StatusIcon-Connectivity')
+    api project(':CarSystemUI-StatusIcon-Wifi')
+    api project(':CarSystemUI-SystemBar-AaosStudioButton')
+    api project(':CarSystemUI-SystemBar-AppGridButton')
+    api project(':CarSystemUI-SystemBar-AssistantButton')
+    api project(':CarSystemUI-SystemBar-Base-Controller')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    api project(':CarSystemUI-SystemBar-ControlCenterButton')
+    api project(':CarSystemUI-SystemBar-DebugPanel')
+    api project(':CarSystemUI-SystemBar-Dock')
+    api project(':CarSystemUI-SystemBar-Extension')
+    api project(':CarSystemUI-SystemBar-HomeButton')
+    api project(':CarSystemUI-SystemBar-NotificationChip')
+    api project(':CarSystemUI-SystemBar-Panel')
+    api project(':CarSystemUI-SystemBar-PassengerHomeButton')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Base')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Camera')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Cast')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Mic')
+    api project(':CarSystemUI-SystemBar-PrivacyChip-Share')
+    api project(':CarSystemUI-SystemBar-Standard')
+    api project(':CarSystemUI-SystemBar-Split')
+    api project(':CarSystemUI-SystemBar-UserNamePanel')
+    api project(':CarSystemUI-SystemBar-Volume')
+    kapt files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}
+
+aospSources.processorArgs(project, ['dagger.fastInit=enabled'])

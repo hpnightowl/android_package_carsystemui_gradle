@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.statusicon.base'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/statusicon/base/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/statusicon/base/src']
+        res.srcDirs = []
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-FlexibleUI')
+}

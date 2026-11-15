@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.qc.footer.userpicker'
+    sourceSets.main {
+        manifest.srcFile '../../../../pods/qc/footer/userpicker/AndroidManifest.xml'
+        java.srcDirs = ['../../../../pods/qc/footer/userpicker/src']
+        res.srcDirs = []
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-QC-Footer-Base')
+    api 'aosp:car-qc-lib:17'
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.systembar.standard'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/systembar/standard/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/systembar/standard/src']
+        res.srcDirs = ['../../../pods/systembar/standard/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-SystemBar-Base-Controller')
+    api project(':CarSystemUI-SystemBar-Base-View')
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

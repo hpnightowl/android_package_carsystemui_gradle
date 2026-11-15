@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.qc.datasubscription'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/qc/datasubscription/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/qc/datasubscription/src']
+        res.srcDirs = ['../../../pods/qc/datasubscription/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-FlexibleUI')
+    api 'aosp:car-data-subscription-lib:17'
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

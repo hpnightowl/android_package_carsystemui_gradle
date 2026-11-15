@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.qc.profileswitcher'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/qc/profileswitcher/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/qc/profileswitcher/src']
+        res.srcDirs = ['../../../pods/qc/profileswitcher/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-Shared')
+    api 'aosp:car-qc-lib:17'
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}

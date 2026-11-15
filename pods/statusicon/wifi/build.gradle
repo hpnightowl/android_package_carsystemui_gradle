@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.file('gradle/aosp-module.gradle')
+
+android {
+    namespace 'com.android.systemui.car.statusicon.wifi'
+    sourceSets.main {
+        manifest.srcFile '../../../pods/statusicon/wifi/AndroidManifest.xml'
+        java.srcDirs = ['../../../pods/statusicon/wifi/src']
+        res.srcDirs = ['../../../pods/statusicon/wifi/res']
+        assets.srcDirs = []
+        aidl.srcDirs = []
+    }
+}
+
+dependencies {
+    api project(':CarSystemUI-FlexibleUI')
+    api project(':CarSystemUI-Shared')
+    api project(':CarSystemUI-StatusIcon-Base')
+    annotationProcessor files("${rootDir}/aosp-prebuilts/processors/dagger2-compiler.jar")
+}
