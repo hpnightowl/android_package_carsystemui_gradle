@@ -1,0 +1,18 @@
+CarSystemUI Gradle port
+Copyright 2026 hpnightowl
+
+This work is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The CarSystemUI sources in this repository (src/, res/, res-keyguard/, pods/, lib/, tests/, aconfig/ and the
+other files inherited from packages/apps/Car/SystemUI) are from the Android Open Source Project:
+Copyright (C) The Android Open Source Project, licensed under the Apache License, Version 2.0.
+
+The Gradle port was created by hpnightowl: settings.gradle, build.gradle, gradle.properties, gradle/,
+gradle-modules/, the build.gradle and sources.txt files inside the module directories, the dependency
+repository in aosp-prebuilts/ and the two resource edits listed in the git history.
+
+The libraries inside aosp-prebuilts/ are built from the Android Open Source Project, LineageOS and other
+third-party sources and keep the licenses of their original projects.
+
+If you redistribute this work or a derivative of it, you must keep this NOTICE file and the copyright and
+attribution notices it contains (Apache License 2.0, section 4).
