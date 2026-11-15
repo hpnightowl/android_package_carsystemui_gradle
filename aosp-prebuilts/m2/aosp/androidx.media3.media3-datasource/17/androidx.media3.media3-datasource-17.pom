@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>androidx.media3.media3-datasource</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.media3.media3-datasource-nodeps</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.media3.media3-common</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.media3.media3-database</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.exifinterface_exifinterface</artifactId><version>17</version><scope>compile</scope></dependency>
+  </dependencies>
+</project>

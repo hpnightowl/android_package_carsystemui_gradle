@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>car-scalable-ui-lib</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.annotation_annotation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com_android_car_scalableui_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com_android_wm_shell_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com_android_systemui_car_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>kotlin-stdlib</artifactId><version>17</version><scope>compile</scope></dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>settingslib_media_flags_lib</artifactId>
+  <version>17</version>
+  <packaging>jar</packaging>
+  <dependencies>
+  </dependencies>
+</project>

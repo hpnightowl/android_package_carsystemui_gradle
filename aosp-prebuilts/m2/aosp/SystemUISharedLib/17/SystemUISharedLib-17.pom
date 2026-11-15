@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>SystemUISharedLib</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>BiometricsSharedLib</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>PlatformAnimationLib</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>PluginCoreLib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>SystemUIPluginLib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>SystemUIUnfoldLib</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>SystemUISharedLib-Keyguard</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>SystemUIFlagsLib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>WindowManager-Shell-shared</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>WindowManager-Shell-aidls</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>WindowManager-Shell-shared-aidls</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>tracinglib-platform</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.dynamicanimation_dynamicanimation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.concurrent_concurrent-futures</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.lifecycle_lifecycle-runtime-ktx</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.lifecycle_lifecycle-viewmodel-ktx</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.recyclerview_recyclerview</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>kotlinx_coroutines_android</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>dagger2</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>jsr330</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com_android_systemui_shared_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>msdl</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>view_capture</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>am_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>org.lineageos.platform.internal</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

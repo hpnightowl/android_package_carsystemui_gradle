@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>car-media-common-source-no-overlayable</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.cardview_cardview</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.legacy_legacy-support-v4</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.recyclerview_recyclerview</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.mediarouter_mediarouter</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx-constraintlayout_constraintlayout</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.lifecycle_lifecycle-common-java8</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.lifecycle_lifecycle-extensions</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>car-apps-common-source-no-overlayable</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>car-media-extensions-source</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>car-ui-lib-source-no-overlayable</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>car-uxr-client-lib-source-no-overlayable</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.media3.media3-session</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

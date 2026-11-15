@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>com.android.systemui.brightness_main</artifactId>
+  <version>17</version>
+  <packaging>jar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.annotation_annotation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.brightness_api</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.user.data-api</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.util.kotlin</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.util.policy-api</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>SystemUISharedLib</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>com.google.android.material_material</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>com.google.android.material_material-nodeps</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.activity_activity</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.annotation_annotation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.annotation_annotation-experimental</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.appcompat_appcompat</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.cardview_cardview</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.coordinatorlayout_coordinatorlayout</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx-constraintlayout_constraintlayout</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.core_core</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.drawerlayout_drawerlayout</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.dynamicanimation_dynamicanimation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.fragment_fragment</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.lifecycle_lifecycle-runtime</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.recyclerview_recyclerview</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.resourceinspection_resourceinspection-annotation</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.transition_transition</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.vectordrawable_vectordrawable</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.viewpager2_viewpager2</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.graphics_graphics-shapes</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>error_prone_annotations</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

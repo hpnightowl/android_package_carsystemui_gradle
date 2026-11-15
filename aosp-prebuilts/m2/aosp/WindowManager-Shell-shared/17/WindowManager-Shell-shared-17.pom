@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>WindowManager-Shell-shared</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>WindowManager-Shell-shared-aidls</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.core_core-animation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.dynamicanimation_dynamicanimation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com_android_wm_shell_flags_lib</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.window.flags.window-aconfig-java</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>jsr330</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>kotlin-parcelize-runtime</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>dynamiccolors</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>usertypelib</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

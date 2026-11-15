@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>androidx.test.rules-nodeps</artifactId>
+  <version>17</version>
+  <packaging>pom</packaging>
+  <dependencies>
+    <dependency><groupId>androidx.test</groupId><artifactId>rules</artifactId><version>1.7.0</version><scope>compile</scope><exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.annotation_annotation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>junit</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.test.runner</artifactId><version>17</version><type>aar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

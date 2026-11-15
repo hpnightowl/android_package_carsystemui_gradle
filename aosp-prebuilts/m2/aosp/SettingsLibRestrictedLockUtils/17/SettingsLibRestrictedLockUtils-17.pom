@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>SettingsLibRestrictedLockUtils</artifactId>
+  <version>17</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>device_policy_aconfig_flags_java_export</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>

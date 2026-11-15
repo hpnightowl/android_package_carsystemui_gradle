@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>lottie_compose</artifactId>
+  <version>17</version>
+  <packaging>jar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>lottie</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.compose.foundation_foundation</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.compose.runtime_runtime</artifactId><version>17</version><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>androidx.compose.ui_ui</artifactId><version>17</version><scope>compile</scope></dependency>
+  </dependencies>
+</project>

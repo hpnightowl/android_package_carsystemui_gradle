@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aosp</groupId>
+  <artifactId>com.android.systemui.bundle.phone_dagger</artifactId>
+  <version>17</version>
+  <packaging>jar</packaging>
+  <dependencies>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.brightness_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.dump_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.graphics_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.headline.ui_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.notifications.content.ui_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.notifications.intelligence.rules.ui_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.notifications.intelligence.rules_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.qs.panels.ui_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.retail-impl</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.statusbar.pipeline.airplane.data-impl</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.statusbar.pipeline.airplane.shared-impl</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.util.policy-impl</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+    <dependency><groupId>aosp</groupId><artifactId>com.android.systemui.util.settings_dagger</artifactId><version>17</version><type>jar</type><scope>compile</scope></dependency>
+  </dependencies>
+</project>
